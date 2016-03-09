@@ -1,0 +1,81 @@
+// Button generator
+@mixin btn {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 400;
+  padding: $btn-padding;
+  font-size: $font-size;
+  line-height: $btn-line-height;
+  border: 1px solid;
+  // border: 1px solid transparent;
+  // background-color: $color-gray-lighter;
+  // color: $text-color;
+
+  @if $border-radius > 0 {
+    border-radius: $border-radius;
+  }
+
+  // &--hover,
+  &:hover {
+    text-decoration: none;
+    // color: $text-color;
+    // background-color: darken($color-gray-lighter, 10%);
+    // border-color: transparent;
+  }
+
+  // &--active,
+  &:active,
+  &:focus {
+    text-decoration: none;
+    // color: $text-color;
+    // background-color: darken($color-gray-lighter, 15%);
+    // border-color: transparent;
+  }
+
+  &:focus {
+    @include focus;
+  }
+
+  // &--disabled,
+  &:disabled {
+    cursor: not-allowed;
+    opacity: $opacity;
+
+    a& {
+      pointer-events: none;
+    }
+  }
+}
+
+// Button color settings generator
+@mixin btn-adjust-colors($color: $text-color, $background: $color-gray-lighter, $border: $color-gray-lighter) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  // &--hover,
+  &:hover {
+    color: $color;
+    background-color: darken($background, 10%);
+    border-color: darken($border, 12%);
+  }
+
+  // &--active,
+  &:active,
+  &:focus {
+    color: $color;
+    background-color: darken($background, 15%);
+    border-color: darken($border, 17%);
+  }
+
+  // &--disabled,
+  &:disabled {
+    color: $color;
+    background-color: $background;
+    border-color: $border;
+  }
+}

@@ -1,0 +1,12 @@
+// Dependency
+@import "utilities/mixins/index";
+
+//* Icon Fonts
+@include font-face("iconfont", "iconfont", "normal", "normal", "woff");
+
+//* Main Fonts
+@include font-face("poppins-light", "poppins", "normal", "normal", "woff");
+@include font-face("poppins-regular", "poppins", "normal", "normal", "woff");
+@include font-face("poppins-medium", "poppins", "normal", "normal", "woff");
+@include font-face("poppins-semibold", "poppins", "normal", "normal", "woff");
+@include font-face("poppins-bold", "poppins", "normal", "normal", "woff");

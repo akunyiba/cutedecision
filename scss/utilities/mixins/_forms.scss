@@ -1,0 +1,18 @@
+// Form focus
+@mixin focus($type: none) {
+  @if ($type = none) {
+    border-color: lighten($color-primary, 13%);
+    outline: lighten($color-primary, 13%) auto 1px;
+    outline-offset: 0;
+  }
+  @if ($type = success) {
+    border-color: $color-success;
+    outline: $color-success auto 1px;
+    outline-offset: 0;
+  }
+  @if ($type = error) {
+    border-color: lighten($color-danger, 13%);
+    outline: lighten($color-danger, 13%) auto 1px;
+    outline-offset: 0;
+  }
+}

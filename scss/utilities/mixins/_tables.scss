@@ -1,0 +1,100 @@
+/* Responsive table generator
+ATTENTION! This table needs data-label attributes to be specified for each <td>:
+
+<table class="table-responsive-data">
+ <thead>
+   <tr>
+     <th>First Name</th>
+     <th>Last Name</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td data-label="First Name">Mark Usa</td>
+     <td data-label="Last Name">Ottomann</td>
+   </tr>
+   <tr class="row-success">
+     <td data-label="First Name">Jacob Bi</td>
+     <td data-label="Last Name">Thornton II</td>
+   </tr>
+ </tbody>
+</table>
+*/
+
+// Accepts the width to which the table remain adapted for narrow viewports
+@mixin table-responsive-data($screen: sm) {
+
+  @if ($screen = xs) {
+    @media (max-width: ($screen-sm - 1)) {
+      @include table-responsive-data-properties;
+    }
+  }
+  @if ($screen = sm) {
+    @media (max-width: ($screen-md - 1)) {
+      @include table-responsive-data-properties;
+    }
+  }
+  @if ($screen = md) {
+    @media (max-width: ($screen-lg - 1)) {
+      @include table-responsive-data-properties;
+    }
+  }
+  @if ($screen = lg) {
+    @media (max-width: ($screen-xl - 1)) {
+      @include table-responsive-data-properties;
+    }
+  }
+  @if ($screen = xl) {
+    @media (max-width: ($screen-xxl - 1)) {
+      @include table-responsive-data-properties;
+    }
+  }
+  @if ($screen = xxl) {
+    @media (max-width: ($screen-xxl - 1)) {
+      @include table-responsive-data-properties;
+    }
+  }
+
+}
+
+// Table rules
+@mixin table-responsive-data-properties {
+  display: block;
+  border: 0;
+  overflow-x: auto; // IE11 refuses to endure a long text in <td>, fix
+
+  thead {
+    display: none;
+  }
+
+  tbody {
+    display: block;
+    width: 100%;
+
+    tr {
+      display: block;
+      border: 1px solid $color-gray-lighter;
+      border-top: 0;
+
+      &:not(:last-child) {
+        margin-bottom: $type-spacer;
+      }
+    }
+
+    td {
+      display: flex;
+      width: 100%;
+      text-align: right;
+
+      &:before {
+        display: block;
+        padding-right: $spacer;
+        flex: 1 0 auto;
+        text-align: left;
+        font-weight: 700;
+        white-space: nowrap;
+        content: attr(data-label);
+      }
+    }
+  }
+}

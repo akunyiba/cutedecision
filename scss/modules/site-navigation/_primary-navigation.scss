@@ -1,0 +1,45 @@
+/* ## Primary Navigation
+--------------------------------------------- */
+
+.nav-primary {
+  @include grid-column-span(12);
+  display: none;
+  position: relative;
+  height: auto;
+  order: 1;
+  background-color: darken($color-danger, 10%);
+
+  .menu-primary {
+    text-align: left;
+    padding: 0 $grid-gutter-width;
+    padding: 10px 0;
+
+    .menu-item {
+      display: block;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+    }
+
+    a:hover,
+    a:focus,
+    .current-menu-item > a {
+      color: $color-gray-lighter;
+      text-decoration: underline;
+    }
+
+    .sub-menu a {
+      color: $color-gray-darker;
+    }
+
+    .sub-menu a:hover,
+    .sub-menu a:focus,
+    .sub-menu .current-menu-item > a {
+      color: $link-color;
+      text-decoration: underline;
+    }
+  }
+}

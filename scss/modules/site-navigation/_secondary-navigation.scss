@@ -1,0 +1,46 @@
+/* ## Secondary Navigation
+--------------------------------------------- */
+// TODO: latest, hot, popular, trending: сейчас классы установлены в админке
+.nav-secondary {
+  background-color: #fff;
+  padding-bottom: 10px;
+  .menu-secondary {
+    .menu-item a::before {
+      position: absolute;
+      top: -24px;
+      width: 100%;
+      content: "\f26e";
+      font-family: "iconfont";
+      font-weight: normal;
+      font-size: 1.8rem;
+      text-align: center;
+      margin: 0 auto;
+      opacity: 0.3;
+    }
+    .latest > a::before {
+      content: "\f26e";
+    }
+    .hot > a::before {
+      content: "\e900";
+      font-size: 1.5rem;
+      line-height: 1.5em;
+    }
+    .popular > a::before {
+      content: "\f4b3";
+    }
+    .trending > a::before {
+      content: "\f262";
+    }
+    .menu-item {
+      position: relative;
+      margin: 0 14px;
+    }
+    .menu-item a {
+      text-transform: uppercase;
+      font-family: "poppins-bold";
+      font-size: $font-size-small;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

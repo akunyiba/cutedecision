@@ -1,0 +1,6 @@
+// Single line of text with an ellipsis in the case of an overflow
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

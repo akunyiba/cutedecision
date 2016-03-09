@@ -1,0 +1,78 @@
+@import "utilities/index";
+
+/*! # Genesis Framework
+Theme Name: #{capitalize("@@themeName")}
+Theme URI: http://themeforest.net/item/@@themeName
+Description: Genesis Framework starter child theme by Eolythic.
+Author: Eolytic
+Author URI: http://www.eolytic.com
+Template: genesis
+Text Domain: @@themeName
+Template Version: 1.0.0
+License: GPL-3.0+
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+*/
+
+/* # Table of Contents
+- HTML5 Reset
+	- Baseline Normalize
+	- Box Sizing
+	- Float Clearing
+- Defaults
+	- Typographical Elements
+	- Headings
+	- Objects
+	- Gallery
+	- Forms
+	- Tables
+	- Screen Reader Text
+- Structure and Layout
+	- Site Containers
+	- Column Widths and Positions
+		- Wrapping div for .content and .sidebar-primary
+		- Content
+		- Primary Sidebar
+		- Secondary Sidebar
+	- Column Classes
+	- Grid Classes
+- Common Classes
+	- Avatar
+	- Genesis
+	- Search Form
+	- Titles
+	- WordPress
+	- Icons
+- Widgets
+	- Featured Content
+- Plugins
+	- Genesis eNews Extended
+	- Jetpack
+- Site Header
+	- Title Area
+	- Widget Area
+- Site Navigation
+	- Accessible Menu
+	- Site Header Navigation
+	- Primary Navigation
+	- Secondary Navigation
+	- Skip Links
+- Content Area
+	- Entries
+	- Entry Meta
+	- Pagination
+	- Comments
+- Sidebars
+- Footer Widgets
+- Site Footer
+- Media Queries
+	- Retina Display
+	- Max-width: 1200px
+	- Max-width: 960px
+	- Max-width: 800px
+	- Print
+*/
+
+@import "base/index";
+@import "layout/index";
+@import "modules/index";
+

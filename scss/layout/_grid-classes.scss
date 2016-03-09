@@ -1,0 +1,51 @@
+/* ## Grid Classes
+--------------------------------------------- */
+/* Link: http://flexboxgrid.com/ */
+
+$viewport-layouts: (
+        "xs":(),
+        "sm":("min-width":$screen-sm),
+        "md":("min-width":$screen-md),
+        "lg":("min-width":$screen-lg)
+);
+
+$half-gutter-width: $grid-gutter-width / 2;
+$gutter-compensation: -1 * $half-gutter-width;
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+.row {
+  @include grid-row;
+}
+
+.row.row-reverse {
+  @include grid-row-direction(true);
+}
+
+.col.col-reverse {
+  @include grid-column-direction($reverse:true);
+}
+
+@each $key, $value in $viewport-layouts {
+  @if ($key == xs) {
+
+    @include example-viewport($key);
+
+  } @else {
+
+    $min-width: map-get($value, "min-width");
+    @media screen and (min-width: $min-width) {
+      @include example-viewport($key);
+
+      .container {
+        width: $min-width;
+      }
+    }
+
+  }
+}

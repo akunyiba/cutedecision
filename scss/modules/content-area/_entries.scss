@@ -1,0 +1,121 @@
+/* ## Entries
+--------------------------------------------- */
+
+.entry {
+  margin-bottom: 40px;
+  padding: 50px 60px;
+}
+
+.entry-thumb {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin-bottom: $spacer;
+  a {
+    display: block; // чтобы .entry-image__meta прижимался к низу
+    line-height: 0;
+  }
+  &-flag {
+    position: absolute;
+    z-index: 1;
+    top: -20px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    font-family: "iconfont";
+    font-size: 20px;
+    line-height: 2em;
+    text-align: center;
+    color: #fff;
+    background: $color-danger;
+    border-radius: 50%;
+  }
+  &-meta {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    &-shares, &-comments, &-category {
+      display: inline-block;
+      position: relative;
+      background: #fff;
+      font-size: 1.2rem;
+      line-height: 1.8em;
+      vertical-align: bottom;
+      color: $text-color;
+      border: 0;
+      margin: 0;
+      padding-right: 14px;
+      .icon {
+        color: $color-gray-light;
+      }
+    }
+    &-shares {
+      color: $color-gray-light;
+    }
+    &-category {
+      font-family: "poppins-bold";
+      background: $color-gray-lighter;
+      padding-left: 14px;
+    }
+  }
+}
+
+.content .entry {
+  background-color: transparent;
+}
+
+.entry-content {
+
+  ol,
+  ul {
+    margin-bottom: 28px;
+    margin-left: 40px;
+  }
+
+  ol > li {
+    list-style-type: decimal;
+  }
+
+  ul > li {
+    list-style-type: disc;
+  }
+
+  ol ol,
+  ul ul {
+    margin-bottom: 0;
+  }
+
+  code {
+    background-color: $color-gray-light;
+    color: $text-color;
+  }
+}
+
+.entry-header {
+  .entry-title {
+    font-family: "poppins-semibold","Roboto","Arial",sans-serif;
+    letter-spacing: -0.025em;
+    color: $color-gray-darker;
+  }
+  .entry-meta {
+    color: $color-gray-light;
+    .entry-author-link {
+      color: $color-gray-darker;
+    }
+  }
+}
+
+.featured {
+  &-item {
+    display: inline-block;
+    height: 96px;
+    max-width: 200px;
+    &-thumb {
+      height: 100%;
+    }
+    &-header {
+      height: 40px;
+    }
+  }
+}

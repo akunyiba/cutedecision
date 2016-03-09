@@ -1,0 +1,19 @@
+/* ## Featured Content
+--------------------------------------------- */
+
+.featured-content {
+
+  .entry {
+    border-bottom: 2px solid $color-gray-light;
+    margin-bottom: 20px;
+    padding: 0 0 24px;
+  }
+
+  .entry-title {
+    font-size: $font-size-h3;
+  }
+}
+
+.footer-widgets .entry {
+  border-bottom: 1px dotted $color-gray;
+}
