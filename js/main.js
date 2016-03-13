@@ -1,5 +1,68 @@
-// TODO: Функция подгрузки шрифтов в localStorage: Добавить JSDOC, перевести комментарии, дописать catch(ex)
+jQuery(document).ready(function ($) {
 
+    //* Responsive Navigation
+    var navPrimary = $('.nav-primary');
+    var toggleLink = $('.toggle-link');
+    var hamburgerLink = $('.hamburger-link');
+
+    toggleLink.on('click', function () {
+        $(this).parent().toggleClass('is-active');
+        $(this).parent().siblings().removeClass('is-active');
+    });
+
+    hamburgerLink.on('click', function () {
+        navPrimary.slideToggle(300);
+    });
+
+    $('.toggle-search, .toggle-follow').children('.toggle-link').on('click', function () {
+        if (navPrimary.is(':visible')) {
+            navPrimary.slideToggle(300);
+        }
+    });
+
+
+    //* Featured area scrolling
+    var featuredStoriesList = $('.featured-stories-list');
+    var arrowPrev = $('.featured-stories-arrow.arrow-prev');
+    var arrowNext = $('.featured-stories-arrow.arrow-next');
+    var entryWidth = $('.featured-story:first').width();
+
+    function scrollingAdjustArrows() {
+        var leftPos = featuredStoriesList.scrollLeft();
+        if (leftPos > 0) {
+            arrowPrev.show();
+        }
+        else if (leftPos == 0) {
+            arrowPrev.hide();
+        }
+        if (leftPos + featuredStoriesList.innerWidth() >= featuredStoriesList[0].scrollWidth) {
+            arrowNext.hide();
+        }
+        else {
+            arrowNext.show();
+        }
+    }
+
+    $('.featured-stories').hover(scrollingAdjustArrows, function () {
+            arrowPrev.hide();
+            arrowNext.hide();
+        }
+    );
+
+    featuredStoriesList.on('scroll', scrollingAdjustArrows);
+
+    arrowPrev.on('click', function () {
+        var leftPos = featuredStoriesList.scrollLeft();
+        featuredStoriesList.animate({scrollLeft: leftPos - entryWidth * 2}, 800);
+    });
+
+    arrowNext.on('click', function () {
+        var leftPos = featuredStoriesList.scrollLeft();
+        featuredStoriesList.animate({scrollLeft: leftPos + entryWidth * 2}, 800);
+    });
+});
+
+// TODO: Функция подгрузки шрифтов в localStorage: Добавить JSDOC, перевести комментарии, дописать catch(ex)
 (function () {
 
     // Variable comes from functions.php
@@ -45,55 +108,3 @@
 (function ($) {
     //..
 })(jQuery);
-
-jQuery(document).ready(function ($) {
-
-    /* Responsive Navigation */
-
-    var nav_primary = $('.nav-primary');
-    var hamburger_link = $('.site-nav-hamburger-link');
-    var search_link = $('.site-nav-search-link');
-    var follow_link = $('.site-nav-follow-link');
-    var nav_links = [hamburger_link, search_link, follow_link];
-
-    for (var i = 0; i < nav_links.length; i++) {
-        nav_links[i].on('click', function () {
-            $(this).parent().toggleClass('is-active'); // TODO: Эффект клика по блоку (полупрозрачный фон)
-            $(this).parent().siblings().removeClass('is-active');
-        });
-    }
-
-    function hide_nav_primary() {
-        if (nav_primary.is(':visible')) {
-            nav_primary.slideToggle(300);
-        }
-    }
-
-    hamburger_link.click(function () {
-        $(this).parent().next('.nav-primary').slideToggle(300);
-    });
-
-    search_link.click(function () {
-        hide_nav_primary();
-    });
-
-    follow_link.click(function () {
-        hide_nav_primary();
-    });
-
-
-    /* Waves Click Effect */
-
-    $(window).resize(function () {
-        if ($(window).width() <= 960) {
-            for (var i = 0; i < nav_links.length; i++) {
-                Waves.attach(nav_links[i].selector);
-                var config = {
-                    duration: 300,
-                    delay: 100
-                };
-                Waves.init(config);
-            }
-        }
-    });
-});

@@ -4,8 +4,8 @@
 .search-form {
   overflow: hidden;
   input {
-    &::placeholder {
-    }
+    background-color: $color-gray-lightest;
+    padding: 10px;
   }
 }
 

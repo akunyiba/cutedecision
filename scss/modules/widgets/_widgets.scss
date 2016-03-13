@@ -1,6 +1,21 @@
 /* # Widgets
 ---------------------------------------------------------------------------------------------------- */
 
+//* Ad before content
+
+.widget-area.ad-before-content {
+  text-align: center;
+  border-bottom: 1px solid $color-gray-lightest;
+}
+
+.adsbygoogle {
+  background-color: #eee;
+}
+
+.widget-area {
+  padding: 10px 0;
+}
+
 .widget {
   word-wrap: break-word;
 

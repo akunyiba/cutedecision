@@ -42,6 +42,8 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 	- Titles
 	- WordPress
 	- Icons
+- Featured Stories Area
+- Latest Stories Area
 - Widgets
 	- Featured Content
 - Plugins
@@ -51,6 +53,8 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 	- Title Area
 	- Widget Area
 - Site Navigation
+    - Navbar
+	- Quick Nav
 	- Accessible Menu
 	- Site Header Navigation
 	- Primary Navigation
@@ -75,4 +79,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 @import "base/index";
 @import "layout/index";
 @import "modules/index";
+
+//* Vendor
+@import "../../node_modules/node-waves/src/scss/waves";
 

@@ -1,0 +1,68 @@
+/* # Featured Posts Area
+---------------------------------------------------------------------------------------------------- */
+
+.featured-stories {
+  position: relative;
+  overflow-y: scroll;
+  border-bottom: 1px solid $color-gray-lightest;
+  &-arrow {
+    @extend %hide-text;
+    @extend .icon;
+    display: none;
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+    &::before {
+      color: #fff;
+      font-size: 1.5rem;
+      position: absolute;
+      bottom: 45%;
+      left: 5px;
+      text-indent: initial;
+    }
+    &.arrow-prev {
+      &::before {
+        @extend .icon-android-arrow-back::before;
+      }
+    }
+    &.arrow-next {
+      right: 0;
+      &::before {
+        @extend .icon-android-arrow-forward::before;
+      }
+    }
+  }
+  .featured-stories-list {
+    margin: 0 auto;
+    list-style: none;
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 0px;
+  }
+  .featured-story {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 50%;
+    & .entry-media {
+      a {
+        @extend %link-as-block;
+      }
+    }
+    & .entry-header {
+      min-height: 60px;
+      white-space: normal;
+      padding: 4px 10px;
+    }
+    & .entry-title {
+      font-family: "poppins-medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: $font-size-small;
+      text-transform: uppercase;
+      a {
+        text-decoration: none;
+        color: $color-gray-darkest;
+      }
+    }
+  }
+}

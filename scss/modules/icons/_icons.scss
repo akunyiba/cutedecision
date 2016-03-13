@@ -11,46 +11,52 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  &-android-mail:before {
+  &-android-mail::before {
     content: "\f2eb";
   }
-  &-arrow-graph-up-right:before {
+  &-arrow-graph-up-right::before {
     content: "\f262";
   }
-  &-chatbubble:before {
+  &-chatbubble::before {
     content: "\f11e";
   }
-  &-clock:before {
+  &-clock::before {
     content: "\f26e";
   }
-  &-close:before {
+  &-close::before {
     content: "\f36e";
   }
-  &-ios-star:before {
+  &-ios-star::before {
     content: "\f4b3";
   }
-  &-fire:before {
+  &-fire::before {
     content: "\e900";
   }
-  &-search:before {
+  &-search::before {
     content: "\f21f";
   }
-  &-share:before {
+  &-share::before {
     content: "\e901";
   }
-  &-google-plus:before {
+  &-google-plus::before {
     content: "\e902";
   }
-  &-facebook:before {
+  &-facebook::before {
     content: "\e903";
   }
-  &-instagram:before {
+  &-instagram::before {
     content: "\e904";
   }
-  &-twitter:before {
+  &-twitter::before {
     content: "\e905";
   }
-  &-pinterest:before {
+  &-pinterest::before {
     content: "\e906";
+  }
+  &-android-arrow-back::before {
+    content: "\f2ca";
+  }
+  &-android-arrow-forward::before {
+    content: "\f30f";
   }
 }
