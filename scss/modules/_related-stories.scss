@@ -1,0 +1,105 @@
+/* ## Related Stories
+--------------------------------------------- */
+
+.related-stories, .more-from-category {
+  @include make-row(0);
+  //@include make-col(0);
+  //@include make-col-span(12);
+  //margin-top: $spacer * 2;
+
+  .singular .content & .entry-title {
+    font-family: "Poppins Medium";
+    font-size: $font-size-h5;
+    padding-top: $spacer;
+  }
+
+  .singular .content & .entry-meta {
+    display: block;
+    margin-bottom: $spacer;
+  }
+}
+
+.related-stories {
+
+  @include media-breakpoint-up(md){
+    .singular .content & .entry {
+      @include make-col-span(6);
+    }
+  }
+}
+
+/* ## More From Category Stories
+--------------------------------------------- */
+
+.more-from-category {
+  .loop-header {
+    .loop-title {
+      border-top: 1px solid $gray-lighter;
+      padding-top: $spacer * 2;
+    }
+  }
+
+  .singular .content & .entry {
+    //@include make-row(0);
+
+    padding-left: 0;
+    padding-right: 0;
+
+    & .entry-media, & .entry-header {
+      //@include make-col(0);
+      //@include make-col-span(12);
+    }
+
+    & .entry-header {
+      & .entry-meta {
+        margin-top: $spacer;
+        time {
+          font-size: $font-size-xs;
+        }
+      }
+
+      .entry-author, .entry-author-link, .entry-shares-count {
+        vertical-align: bottom;
+      }
+    }
+  }
+
+  .entry .entry-meta, .entry .entry-meta span {
+    font-size: $font-size-xs;
+  }
+
+  .entry-author-name {
+    font-family: "Poppins Light", $font-family-sans-serif;
+  }
+
+  // .more-from-category
+  @include media-breakpoint-up(md) {
+    .singular .content & .entry {
+      @include make-col();
+      @include make-col-span(12);
+      @include make-row(0);
+
+      & .entry-info {
+        position: relative;
+      }
+
+      & .entry-media, & .entry-header {
+        @include make-col(0);
+        @include make-col-span(6);
+      }
+
+      & .entry-header {
+        padding-left: $spacer;
+
+        .entry-title {
+          padding-top: 0;
+          margin-top: .5rem;
+        }
+
+        .entry-author, .entry-author-link, .entry-shares-count {
+          vertical-align: top;
+        }
+      }
+    }
+  }
+}

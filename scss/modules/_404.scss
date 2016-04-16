@@ -1,0 +1,74 @@
+/* ## 404 Page
+--------------------------------------------- */
+
+.error404 {
+  .content-sidebar-wrap {
+
+    .wrap {
+      @include make-col(0);
+    }
+
+    .content {
+      @include make-col();
+      @include make-col-span(12);
+      //padding-top: 0;
+
+    }
+
+    .entry {
+      //margin-top: $spacer * 2;
+      @include make-col-span(12);
+    }
+  }
+
+  .page-header {
+    @include make-col(0);
+    @include make-col-span(12);
+  }
+
+  .entry-content {
+    @include make-row(0);
+
+    .nf-advice {
+      @include make-col();
+      @include make-col-span(4);
+
+      &-title {
+        font-family: "Poppins Bold", $font-family-sans-serif;
+        font-size: $font-size-h5;
+        text-transform: uppercase;
+        margin-top: $spacer * 2;
+        margin-bottom: $spacer;
+      }
+
+      &-desc {
+        font-size: $font-size-base;
+        color: $gray;
+
+        a {
+          color: $link-hover-color;
+        }
+      }
+    }
+
+    .icon {
+      display: block;
+      font-size: 100px;
+      color: $gray-lighter;
+    }
+
+    // TODO: Сделать как базовый, повторяется
+    .search-form {
+      width: 100%;
+
+      // кроме этого
+      input {
+        background-color: #fff;
+      }
+
+      input[type="submit"] {
+        @include sr-only();
+      }
+    }
+  }
+}

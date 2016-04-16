@@ -1,0 +1,102 @@
+/* # Featured Stories
+---------------------------------------------------------------------------------------------------- */
+
+.featured-stories {
+  position: relative;
+  overflow-y: scroll;
+  border-bottom: 1px solid $gray-lighter;
+
+  &-arrow {
+    @include text-hide-custom();
+    @extend .icon;
+    display: none;
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+
+    &::before {
+      color: #fff;
+      font-size: 1.2rem;
+      position: absolute;
+      bottom: 45%;
+      text-indent: initial;
+    }
+
+    &.arrow-prev {
+      &::before {
+        @extend .icon-android-arrow-back::before;
+        right: 4px;
+      }
+    }
+
+    &.arrow-next {
+      right: 0;
+      &::before {
+        @extend .icon-android-arrow-forward::before;
+        left: 4px;
+      }
+    }
+  }
+
+  .featured-stories-list {
+    list-style: none;
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .featured-story {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 50%;
+
+    & .entry-media {
+      margin-bottom: 0; // TODO: Вынести в общее свойство для .entry медиа, сейчас дублируется в .latest-stories и .content .entry
+    }
+
+    & .entry-thumb {
+      @include img-fluid();
+    }
+
+    & .entry-title {
+      min-height: 60px;
+      font-family: "Poppins Medium", $font-family-sans-serif;
+      font-size: $font-size-xs;
+      text-transform: uppercase;
+      white-space: normal;
+      padding: 8px 10px;
+      a {
+        color: $gray-dark;
+        transition: color .2s ease-out;
+        @include hover-focus {
+          color: $link-hover-color;
+        }
+      }
+    }
+  }
+
+  // .featured-stories -- SM
+  @include media-breakpoint-up(sm) {
+    & .featured-story {
+      max-width: 25%;
+    }
+  }
+
+  // .featured-stories -- LG
+  @include media-breakpoint-up(lg) {
+
+    & .featured-stories-list {
+      @include make-container();
+      @include make-container-max-widths();
+    }
+
+    & .featured-story {
+      max-width: 16.6667%;
+    }
+
+    & .featured-stories-list {
+      overflow: hidden;
+    }
+  }
+}

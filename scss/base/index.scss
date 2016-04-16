@@ -1,8 +1,11 @@
-@import "reset";
-@import "type";
-@import "headings";
-@import "objects";
-@import "gallery";
-@import "forms";
-@import "tables";
-@import "screen-reader-text";
+@import "normalize";
+@import "bs.reboot";
+@import "bs.type";
+@import "gs.type";
+@import "bs.code"; // not mentioned in the table of contents
+@import "bs.buttons";
+@import "gs.tables";
+@import "bs.forms";
+@import "gs.forms";
+@import "gs.screen-reader-text";
+@import "bs.print";

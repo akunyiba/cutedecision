@@ -1,4 +1,4 @@
-@import "utilities/index";
+@import "utilities/index"; // Must be on top for capitalize mixin to work.
 
 /*! # Genesis Framework
 Theme Name: #{capitalize("@@themeName")}
@@ -15,71 +15,53 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 /* # Table of Contents
 - HTML5 Reset
-	- Baseline Normalize
-	- Box Sizing
-	- Float Clearing
+	- Normalize
+	- Bootstrap Reboot
 - Defaults
 	- Typographical Elements
-	- Headings
-	- Objects
-	- Gallery
+	- Buttons
 	- Forms
 	- Tables
 	- Screen Reader Text
+	- Print
 - Structure and Layout
 	- Site Containers
-	- Column Widths and Positions
-		- Wrapping div for .content and .sidebar-primary
-		- Content
-		- Primary Sidebar
-		- Secondary Sidebar
-	- Column Classes
-	- Grid Classes
+	- Bootstrap Grid
 - Common Classes
-	- Avatar
-	- Genesis
-	- Search Form
-	- Titles
 	- WordPress
-	- Icons
-- Featured Stories Area
-- Latest Stories Area
-- Widgets
-	- Featured Content
-- Plugins
-	- Genesis eNews Extended
-	- Jetpack
+	- Genesis
+	- Avatar
+	- Search Form
 - Site Header
 	- Title Area
 	- Widget Area
 - Site Navigation
-    - Navbar
-	- Quick Nav
 	- Accessible Menu
 	- Site Header Navigation
 	- Primary Navigation
 	- Secondary Navigation
 	- Skip Links
+	- Navbar
+	- Social Links Dropdown
 - Content Area
 	- Entries
 	- Entry Meta
+	- Load More
 	- Pagination
 	- Comments
+	- Featured Stories
+	- Latest Stories
 - Sidebars
-- Footer Widgets
 - Site Footer
-- Media Queries
-	- Retina Display
-	- Max-width: 1200px
-	- Max-width: 960px
-	- Max-width: 800px
-	- Print
+- Widgets
+	- Featured Content
+	- Footer Widgets
+	- Widget Before Content
+- Plugins
+	- Genesis eNews Extended
+- Icons
 */
 
 @import "base/index";
 @import "layout/index";
 @import "modules/index";
-
-//* Vendor
-@import "../../node_modules/node-waves/src/scss/waves";
-

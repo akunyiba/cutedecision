@@ -1,12 +1,25 @@
-// Dependency
-@import "utilities/mixins/index";
-
-//* Icon Fonts
-@include font-face("iconfont", "iconfont", "normal", "normal", "woff");
+// Dependencies
+@import "utilities/index";
 
 //* Main Fonts
-@include font-face("poppins-light", "poppins", "normal", "normal", "woff");
-@include font-face("poppins-regular", "poppins", "normal", "normal", "woff");
-@include font-face("poppins-medium", "poppins", "normal", "normal", "woff");
-@include font-face("poppins-semibold", "poppins", "normal", "normal", "woff");
-@include font-face("poppins-bold", "poppins", "normal", "normal", "woff");
+@include font-face("Poppins Light", "Poppins", "poppins-light", "normal", "normal", "woff");
+@include font-face("Poppins Regular", "Poppins", "poppins-regular", "normal", "normal", "woff");
+@include font-face("Poppins Medium", "Poppins", "poppins-medium", "normal", "normal", "woff");
+@include font-face("Poppins Semibold", "Poppins", "poppins-semibold", "normal", "normal", "woff");
+@include font-face("Poppins Bold", "Poppins", "poppins-bold", "normal", "normal", "woff");
+
+@include font-face("Nova Regular", "ProximaNova", "ProximaNovaSoft-Regular", "normal", "normal", "woff");
+@include font-face("Nova Medium", "ProximaNova", "ProximaNovaSoft-Medium", "normal", "normal", "woff");
+@include font-face("Nova Semibold", "ProximaNova", "ProximaNovaSoft-Semibold", "normal", "normal", "woff");
+@include font-face("Nova Bold", "ProximaNova", "ProximaNovaSoft-Bold", "normal", "normal", "woff");
+
+@include font-face("Roboto", "Roboto", "roboto-regular", "normal", "normal", "woff");
+
+//@include font-face("Lato Light", "Lato", "lato-light", "normal", "normal", "woff");
+//@include font-face("Lato Regular", "Lato", "lato-regular", "normal", "normal", "woff");
+//@include font-face("Lato Medium", "Lato", "lato-medium", "normal", "normal", "woff");
+//@include font-face("Lato Semibold", "Lato", "lato-semibold", "normal", "normal", "woff");
+//@include font-face("Lato Bold", "Lato", "lato-bold", "normal", "normal", "woff");
+
+//* Icon Fonts
+@include font-face("Iconfont", "iconfont", "iconfont", "normal", "normal", "woff");

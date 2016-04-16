@@ -1,0 +1,117 @@
+/* # Latest Stories
+---------------------------------------------------------------------------------------------------- */
+
+.latest-stories {
+  @include make-row(0);
+  position: relative;
+
+  &-title {
+    width: 100%;
+    text-transform: uppercase;
+    font-family: "Poppins Bold", $font-family-sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.2;
+    background: $gray-lighter;
+    padding: 10px;
+    margin-bottom: 0;
+  }
+
+  .entry {
+    position: relative;
+
+    &-media {
+      margin-bottom: 0;
+
+      a {
+        display: block;
+        line-height: 0;
+      }
+
+      .entry-thumb {
+        @include img-fluid();
+      }
+    }
+
+    &-header {
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      font-family: "Poppins Light", $font-family-sans-serif;
+      font-size: $font-size-xs;
+      color: #fff;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.70) 100%);
+      padding: 14px;
+    }
+
+    &-title  {
+      font-size: $font-size-h5;
+      text-shadow: 1px 1px 0 rgba(0,0,0, 0.333);
+
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+
+    //&-stats {
+    //  margin-bottom: 0.5em;
+    //}
+  }
+
+  // .latest-stories -- SM
+  @include media-breakpoint-up(sm) {
+    @include make-container();
+    @include make-container-max-widths();
+    margin-top: 30px;
+
+    &-title {
+      position: absolute;
+      top: -20px;
+      left: 50px;
+      z-index: 1;
+      max-width: 120px;
+      width: auto;
+      word-wrap: break-word;
+      text-align: center;
+      padding: 20px;
+    }
+    & .entry:first-of-type {
+      @include make-col(0);
+      @include make-col-span(12);
+    }
+    & .entry:not(:first-of-type) {
+      @include make-col(0);
+      @include make-col-span(6);
+    }
+  }
+
+  // .latest-stories -- LG
+  @include media-breakpoint-up(lg) {
+    display: block;
+    position: relative;
+    width: 100%;
+
+    & .entry:first-of-type {
+      //width: 70%;
+      width: calc((100% - 2.5rem)/3*2);
+      //@include make-col(0);
+      //@include make-col-span(6);
+    }
+    & .entry:not(:first-of-type) {
+      position: absolute;
+      top: 0;
+      bottom: auto;
+      right: 1.25rem; // TODO: Возможно, придумать лучшее решение
+      left: auto;
+      width: calc((100% - (100% - 1.25rem)/3*2));
+      height: 50%;
+      overflow: hidden;
+      //@include make-col(0);
+      //@include make-col-span(3);
+    }
+    & .entry:last-of-type {
+      top: auto;
+      bottom: 0;
+    }
+  }
+}

@@ -1,165 +1,75 @@
-//* Flexbox Grid
+/// Grid system
+//
+// Generate semantic grid columns with these mixins.
 
-@mixin grid-row ($reverse:false) {
-  @include grid-row-direction($reverse);
-  box-sizing: border-box;
-  display: flex;
-  flex: 0 1 auto;
-  flex-wrap: wrap;
-  margin-right: $gutter-compensation;
-  margin-left: $gutter-compensation;
-}
-
-@mixin grid-row-direction ($reverse:false) {
-  @if ($reverse) {
-    flex-direction: row-reverse;
-  } @else {
-    flex-direction: row;
+@mixin make-container($gutter: $grid-gutter-width) {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+  @if not $enable-flex {
+    @include clearfix();
   }
 }
 
-@mixin grid-row-alignment-horizontal ($alignment) {
-  $justify: inherit;
 
-  @if ($alignment == center) {
-    $justify: center;
-  } @elseif ($alignment == end) {
-    $justify: flex-end;
-  } @elseif ($alignment == start) {
-    $justify: flex-start;
-  }
-
-  justify-content: $justify;
-  text-align: $alignment;
-}
-
-@mixin grid-row-alignment-vertical ($alignment) {
-  @if ($alignment == middle) {
-    align-items: center;
-  } @else if ($alignment == bottom) {
-    align-items: flex-end;
-  } @else {
-    align-items: flex-start;
-  }
-}
-
-@mixin grid-row-spacing ($spacing) {
-  justify-content: $spacing;
-}
-
-@mixin grid-column ($reverse:false) {
-  @include grid-column-direction($reverse);
-  box-sizing: border-box;
-  display: flex;
-  flex: 0 1 auto;
-  flex-grow: 0;
-  flex-shrink: 0;
-  padding-right: $half-gutter-width;
-  padding-left: $half-gutter-width;
-}
-
-@mixin grid-column-direction ($reverse:false) {
-  @if ($reverse) {
-    flex-direction: column-reverse;
-  } @else {
-    flex-direction: column;
-  }
-}
-
-@mixin grid-column-span ($grid-columns-to-span:12, $total-columns-in-row:12) {
-  @if ($grid-columns-to-span == auto) {
-    flex-grow: 1;
-    flex-basis: 0;
-    max-width: 100%;
-
-  } @else {
-    $span-percentage: $grid-columns-to-span / $total-columns-in-row;
-
-    flex-basis: $span-percentage * 100%;
-    max-width: $span-percentage * 100%;
-  }
-}
-
-@mixin grid-column-offset ($grid-columns-to-offset, $total-columns-in-row:12) {
-  margin-left: ($grid-columns-to-offset / $total-columns-in-row) * 100%;
-}
-
-@mixin grid-column-order ($position) {
-  @if ($position == last) {
-    $position: 9999;
-  } @else if ($position == first) {
-    $position: -9999;
-  }
-
-  order: $position;
-}
-
-//* Grid classes generator
-
-@mixin example-viewport ($key) {
-  .col-#{$key} {
-    $str: "&";
-    @for $i from 1 through $grid-columns {
-      $str: #{$str + "," & + "-" + $i + "," + & + "-offset-" + $i};
-    }
-
-    @at-root #{$str} {
-      @include grid-column;
-    }
-
-    & {
-      // no idea why the indenting no longer works for this and why I need & {}
-      @include grid-column-span(auto);
-    }
-
-    @for $i from 1 through $grid-columns {
-      &-#{$i} {
-        @include grid-column-span($i);
-      }
-
-      &-offset-#{$i} {
-        @include grid-column-offset($i);
-      }
+// For each breakpoint, define the maximum width of the container in a media query
+@mixin make-container-max-widths($max-widths: $container-max-widths) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint) {
+      max-width: $container-max-width;
     }
   }
+}
 
-  .start-#{$key} {
-    @include grid-row-alignment-horizontal(start);
+@mixin make-row($gutter: $grid-gutter-width) {
+  @if $enable-flex {
+    display: flex;
+    flex-wrap: wrap;
+  } @else {
+    @include clearfix();
   }
+  margin-left:  ($gutter / -2);
+  margin-right: ($gutter / -2);
+}
 
-  .center-#{$key} {
-    @include grid-row-alignment-horizontal(center);
+@mixin make-col($gutter: $grid-gutter-width) {
+  position: relative;
+  @if not $enable-flex {
+    float: left;
   }
+  min-height: 1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+}
 
-  .end-#{$key} {
-    @include grid-row-alignment-horizontal(end);
+@mixin make-col-span($size, $columns: $grid-columns) {
+  @if $enable-flex {
+    flex: 0 0 percentage($size / $columns);
+  } @else {
+    width: percentage($size / $columns);
   }
+}
 
-  .top-#{$key} {
-    @include grid-row-alignment-vertical(top);
-  }
+@mixin make-col-offset($size, $columns: $grid-columns) {
+  margin-left: percentage($size / $columns);
+}
 
-  .middle-#{$key} {
-    @include grid-row-alignment-vertical(middle);
-  }
+@mixin make-col-push($size, $columns: $grid-columns) {
+  left: if($size > 0, percentage($size / $columns), auto);
+}
 
-  .bottom-#{$key} {
-    @include grid-row-alignment-vertical(bottom);
-  }
+@mixin make-col-pull($size, $columns: $grid-columns) {
+  right: if($size > 0, percentage($size / $columns), auto);
+}
 
-  .around-#{$key} {
-    @include grid-row-spacing(space-around);
-  }
-
-  .between-#{$key} {
-    @include grid-row-spacing(space-between);
-  }
-
-  .first-#{$key} {
-    @include grid-column-order(first);
-  }
-
-  .last-#{$key} {
-    @include grid-column-order(last);
+@mixin make-col-modifier($type, $size, $columns) {
+  // Work around the lack of dynamic mixin @include support (https://github.com/sass/sass/issues/626)
+  @if $type == push {
+    @include make-col-push($size, $columns);
+  } @else if $type == pull {
+    @include make-col-pull($size, $columns);
+  } @else if $type == offset {
+    @include make-col-offset($size, $columns);
   }
 }
